@@ -2658,7 +2658,7 @@ bool Planner::_populate_block(block_t * const block, bool split_move,
  */
 void Planner::buffer_sync_block() {
   // Wait for the next available block
-  uint8_t next_buffer_head;
+  uint8_t next_buffer_head = 0;
   block_t * const block = get_next_free_block(next_buffer_head);
 
   // Clear block
