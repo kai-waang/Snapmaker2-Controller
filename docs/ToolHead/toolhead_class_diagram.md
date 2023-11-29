@@ -104,6 +104,61 @@ classDiagram
     
     ToolHeadDualExtruder --|>ToolHead3DP
     class ToolHeadDualExtruder {
+        +ToolHeadDualExtruder()
+        +Init() ErrCode
+        +ToolChange() ErrCode
+        +probe_state() bool
+        +probe_state(sensor) bool
+        +filament_state() bool
+        +filament_state(e) bool
+        +SelectProbeSensor(sensor)
+        +SetZCompensation() void
+        +GetZCompensation() void
+        +GetToolChangePrePosition() bool
+        
+        +HmiGetHotendType() ErrCode
+        +HmiGetFilamentState() ErrCode
+        +HmiGetHotendTemp() ErrCode
+        +HmiRequestToolChange() ErrCode
+        +HmiSetFanSpeed() ErrCode
+        +HmiSetHotendOffset() ErrCode
+        +HmiGetHotendOffset() ErrCode
+        +HmiRequestGetActiveExtruder() ErrCode
+        
+        +ReportProbeState() void
+        +ReportTemperature() void
+        +ReportPID() void
+        +ReportFilamentState() void
+        +ReportHotendType() void
+        +ReportExtruderInfo() void
+        +ReportHotendOffset() void
+        +ReportProbeSensorCompensation() void
+        +ReportRightExtruderPos() void 
+        +ReportHWVersion() void
+
+        +ModuleCtrlProximitySwitchPower() ErrCode
+        +SetFan() ErrCode
+        +SetHeater() ErrCode
+        +ModuleCtrlProbeStateSync() ErrCode
+        +ModuleCtrlPidSync() ErrCode
+        +ModuleCtrlHotendTypeSync() ErrCode
+        +ModuleCtrlFilamentStateSync() ErrCode
+        +ModuleCtrlHotendOffsetSync() ErrCode
+        +ModuleCtrlZProbeSensorCompensationSync() ErrCode
+        +ModuleCtrlRightExtruderPosSync() ErrCode
+        +ModuleCtrlSetPid() ErrCode
+        +ModuleCtrlToolChange() ErrCode
+        +ModuleCtrlSetExtruderChecking() ErrCode
+        +ModuleCtrlSaveHotendOffset() ErrCode
+        +ModuleCtrlRightExtruderMove() ErrCode
+        +ModuleCtrlSetRightExtruderPosition() ErrCode
+        
+        +GetHWVersion() void
+        +ShowInfo() void
+        +Process() void
+        
+        #CheckLevelingData() void
+        
         
     }
 

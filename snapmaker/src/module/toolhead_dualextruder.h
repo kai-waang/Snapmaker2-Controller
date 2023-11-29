@@ -134,7 +134,7 @@ class ToolHeadDualExtruder: public ToolHead3DP {
     float hotend_diameter_[EXTRUDERS];
     float z_compensation_[EXTRUDERS];
 
-  private:
+//  private:
     uint8_t mac_index_ = MODULE_MAC_INDEX_INVALID;
     uint16_t hw_version_ = MODULE_HW_VER_INVALID;
     bool backup_position_valid;

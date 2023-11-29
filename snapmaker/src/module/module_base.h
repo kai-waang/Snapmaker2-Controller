@@ -99,6 +99,8 @@ enum ModuleDeviceID {
   MODULE_DEVICE_ID_20W_LASER = 19,   // 19
   MODULE_DEVICE_ID_40W_LASER = 20,   // 20
 
+  MODULE_DEVICE_ID_TRIPLE,           // 21
+
   MODULE_DEVICE_ID_INVALID
 };
 
