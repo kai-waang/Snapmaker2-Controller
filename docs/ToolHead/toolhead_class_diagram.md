@@ -2,32 +2,6 @@
 
 classDiagram
     direction LR
-%%    class probe_sensor_t {
-%%        << enum >>
-%%        +PROBE_SENSOR_PROXIMITY_SWITCH
-%%        +PROBE_SENSOR_LEFT_OPTOCOUPLER
-%%        +PROBE_SENSOR_RIGHT_OPTOCOUPLER
-%%        +PROBE_SENSOR_LEFT_CONDUCTIVE
-%%        +PROBE_SENSOR_RIGHT_CONDUCTIVE
-%%        +PROBE_SENSOR_INVALID
-%%    }
-%%    
-%%    class move_type_e {
-%%        << enum >>
-%%        +GO_HOME
-%%        +MOVE_SYNC
-%%        +MOVE_ASYNC
-%%    }
-%%    
-%%    class fan_e {
-%%        << enum >>
-%%        +SINGLE_EXTRUDER_MODULE_FAN    
-%%        +SINGLE_EXTRUDER_NOZZLE_FAN    
-%%        +DUAL_EXTRUDER_LEFT_MODULE_FAN 
-%%        +DUAL_EXTRUDER_RIGHT_MODULE_FAN
-%%        +DUAL_EXTRUDER_NOZZLE_FAN      
-%%    }
-    
     ToolHead3DP--|>ModuleBase
     
     class ToolHead3DP {
