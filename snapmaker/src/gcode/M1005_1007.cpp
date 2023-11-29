@@ -90,8 +90,9 @@ void GcodeSuite::M1006() {
 
   switch (ModuleBase::toolhead()) {
   case MODULE_TOOLHEAD_3DP:
+      SERIAL_ECHOLN("3DP single");
   case MODULE_TOOLHEAD_DUALEXTRUDER:
-    SERIAL_ECHOLN("3DP");
+      SERIAL_ECHOLN("3DP Dual Extruder");
     if (ModuleBase::toolhead() == MODULE_TOOLHEAD_DUALEXTRUDER) {
       printer1->ShowInfo();
       // show hotend offset
