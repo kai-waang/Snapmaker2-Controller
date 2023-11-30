@@ -125,6 +125,7 @@ class ToolHeadLaser: public ModuleBase {
       crosslight_offset_x = crosslight_offset_y = INVALID_OFFSET;
       half_power_mode_ = false;
       air_pump_switch_ = false;
+      weak_light_origin_mode_ = false;
     }
 
     ErrCode Init(MAC_t &mac, uint8_t mac_index);
@@ -137,8 +138,8 @@ class ToolHeadLaser: public ModuleBase {
 
     void SetFanPower(uint8_t power);  // power 0 - 100
 
-    void SetPower(float power);       // change power_val_ and power_pwm_ but not change actual output
-    void SetOutput(float power);      // change power_val_, power_pwm_ and actual output
+    void SetPower(float power, bool is_map=true);       // change power_val_ and power_pwm_ but not change actual output
+    void SetOutput(float power, bool is_map=true);      // change power_val_, power_pwm_ and actual output
     void SetPowerLimit(float limit);  // change power_val_, power_pwm_ and power_limit_, may change actual output if current output is beyond limit
     uint16_t PowerConversionPwm(float power);
 
@@ -148,6 +149,8 @@ class ToolHeadLaser: public ModuleBase {
     bool SetAirPumpSwitch(bool onoff, bool output_log=true);
     bool GetAirPumpSwitch(void) { return air_pump_switch_; }
     bool GetHalfPowerMode(void) { return half_power_mode_; }
+    bool SetWeakLightOriginMode(bool mode);
+    bool GetWeakLightOriginMode(void) { return weak_light_origin_mode_; }
 
     ErrCode SetCrossLightCAN(bool sw);
     ErrCode GetCrossLightCAN(bool &sw);
@@ -187,6 +190,7 @@ class ToolHeadLaser: public ModuleBase {
     ErrCode SetFireSensorReportTime(SSTP_Event_t &event);
     ErrCode SetCrosslightOffset(SSTP_Event_t &event);
     ErrCode GetCrosslightOffset(SSTP_Event_t &event);
+    ErrCode SetWeakLightOriginWork(SSTP_Event_t &event);
 
     void TellSecurityStatus();
     uint8_t LaserGetPwmPinState();
@@ -259,6 +263,7 @@ class ToolHeadLaser: public ModuleBase {
     bool cross_light_state_;
     bool half_power_mode_;
     bool air_pump_switch_;
+    bool weak_light_origin_mode_;
 
   // Laser Inline Power functions
   public:
@@ -272,10 +277,11 @@ class ToolHeadLaser: public ModuleBase {
 
     // Set the power for subsequent movement blocks
     void SetOutputInline(float power);
-    void SetOutputInline(uint16_t power_pwm);
+    void SetOutputInline(uint16_t power_pwm, bool is_sync_power=true);
+    void UpdateInlinePower(uint16_t power_pwm, float sync_power);
 
     // Optimized TurnOn function for use from the Stepper ISR
-    void TurnOn_ISR(uint16_t power_pwm);
+    void TurnOn_ISR(uint16_t power_pwm, bool is_sync_power, float power);
 };
 
 

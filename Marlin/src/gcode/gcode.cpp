@@ -108,8 +108,10 @@ void GcodeSuite::get_destination_from_command() {
         : (i == E_AXIS) ? v : LOGICAL_TO_NATIVE(v, i);
 
       if (MODULE_TOOLHEAD_LASER_20W == ModuleBase::toolhead() || MODULE_TOOLHEAD_LASER_40W == ModuleBase::toolhead()) {
-        if (i <= Y_AXIS && (!laser->CheckCrossLightOffset(laser_crosslight_offset[X_AXIS], laser_crosslight_offset[Y_AXIS])))
-          destination[i] += laser_crosslight_offset[i];
+        if (systemservice.GetCurrentStatus() == SYSTAT_WORK && !laser->GetWeakLightOriginMode()) {
+          if (i <= Y_AXIS && (!laser->CheckCrossLightOffset(laser_crosslight_offset[X_AXIS], laser_crosslight_offset[Y_AXIS])))
+            destination[i] += laser_crosslight_offset[i];
+        }
       }
     }
     else
@@ -144,21 +146,31 @@ void GcodeSuite::get_destination_from_command() {
     else if (parser.seen('S'))
       power_pwm = parser.value_float();
 
-    if (!isnan(power) || !isnan(power_pwm)) {
+    if (parser.seen('I') && parser.codenum != 0)
       planner.laser_inline.status.isEnabled = true;
+
+    if (parser.codenum == 0) {
+      laser->SetOutputInline((uint16_t)0.0);
+    }
+    else if ((!isnan(power) || !isnan(power_pwm))) {
       if (!isnan(power_pwm)) {
         LIMIT(power_pwm, 0, 255);
         laser->SetOutputInline((uint16_t)power_pwm);
+        planner.laser_inline.status.is_sync_power = true;
+        planner.laser_inline.status.power_is_map = false;
       }
       else {
         LIMIT(power, 0, 100);
         laser->SetOutputInline(power);
+        planner.laser_inline.status.is_sync_power = true;
+        planner.laser_inline.status.power_is_map = true;
       }
       // LOG_I("S: %f, P: %f\n", power_pwm, power);
     }
-    else if (parser.codenum == 0) {
-      laser->SetOutputInline((uint16_t)0.0);
-    }
+  }
+  else {
+    // disable inline power by default if plugged other toolhead
+    planner.laser_inline.status.isEnabled = false;
   }
 }
 

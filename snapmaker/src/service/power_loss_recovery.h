@@ -90,7 +90,8 @@ typedef struct __attribute__((aligned (4))) {
 	bool adapter;
 	bool air_pump_switch;
 	bool half_power_mode;
-	bool laser_inline_enable;
+	bool weak_light_origin_mode;
+	block_inline_laser_t laser_info;
 } PowerLossRecoveryData_t;
 
 
@@ -115,8 +116,8 @@ class PowerLossRecovery {
         last_line_ = l;
     }
 
-    void FORCE_INLINE SaveLaserInlineState(bool state) {
-			laser_inline_enable_ = state;
+    void FORCE_INLINE SaveLaserPowerInfo(block_inline_laser_t info) {
+			laser_info_ = info;
     }
 
 	void Reset(void);
@@ -134,7 +135,7 @@ class PowerLossRecovery {
 		millis_t last_powerloss_;
 
     bool enabled_;
-		bool laser_inline_enable_;
+		block_inline_laser_t laser_info_;
 
     int Load(void);
 
