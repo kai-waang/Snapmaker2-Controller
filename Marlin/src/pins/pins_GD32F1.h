@@ -103,21 +103,25 @@ extern int8_t e0_step_pin, e0_dir_pin, e0_enable_pin;
 #define E1_DIR_PIN         e0_dir_pin
 #define E1_ENABLE_PIN      e0_enable_pin
 
-#define E2_STEP_PIN        -1
-#define E2_DIR_PIN         -1
-#define E2_ENABLE_PIN      -1
+// this is for extra extruder, and
+// pins defined here is to control module over the snapmaker cable
+#define E2_STEP_PIN        e0_step_pin
+#define E2_DIR_PIN         e0_dir_pin
+#define E2_ENABLE_PIN      e0_enable_pin
+
 
 //
 // Misc. Functions
 //
-#define SDSS               -1
-#define LED_PIN            -1
+#define SDSS               (-1)
+#define LED_PIN            (-1)
 
 //
 // Heaters / Fans
 //
 #define HEATER_0_PIN       PA15   // unused pin, fake
 #define HEATER_1_PIN       PA15   // unused pin, fake
+#define HEATER_2_PIN       PA15   // unused pin, fake
 
 #define HEATER_BED_PIN     PA7   // BED
 
@@ -132,6 +136,8 @@ extern int8_t e0_step_pin, e0_dir_pin, e0_enable_pin;
 #define TEMP_BED_PIN       PC4   // ANALOG NUMBERING
 #define TEMP_0_PIN         PC5   // ANALOG NUMBERING
 #define TEMP_1_PIN         PE7   // ANALOG NUMBERING
+#define TEMP_2_PIN         PA15  // unused pin
+// ANALOG NUMBERING
 
 //
 // Filament Switch

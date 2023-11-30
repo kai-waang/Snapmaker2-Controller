@@ -28,7 +28,7 @@
 
 #define TOOLHEAD_3DP_FAN_MAX    (3)
 
-#define EXTRUDERS 2
+#define EXTRUDERS 3
 
 #define NOZZLE_FAN_AUTO_ENABLE_TEMP           60
 #define NOZZLE_FAN_AUTO_DISABLE_TEMP          58

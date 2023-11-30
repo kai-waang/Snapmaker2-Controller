@@ -34,7 +34,7 @@ typedef enum {
 
 #define PP_FILE_NAME_LEN  270
 #define PP_FAN_COUNT      3
-#define PP_HEATER         2
+#define PP_HEATER         3 // why the fuck define another one here
 
 // delay for debounce, uint: ms, for now we use 10ms
 #define POWERPANIC_DEBOUNCE	10
