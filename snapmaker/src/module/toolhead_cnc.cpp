@@ -24,11 +24,11 @@
 #include "../common/debug.h"
 
 // marlin headers
-#include "src/core/macros.h"
-#include "src/core/boards.h"
-#include "Configuration.h"
-#include "src/pins/pins.h"
-#include "src/module/stepper.h"
+#include "Marlin/src/core/macros.h"
+#include "Marlin/src/core/boards.h"
+#include "Marlin/Configuration.h"
+#include "Marlin/src/pins/pins.h"
+#include "Marlin/src/module/stepper.h"
 
 // marlin headers
 

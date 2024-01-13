@@ -25,7 +25,7 @@
 #include "../module/toolhead_cnc.h"
 #include "../module/toolhead_laser.h"
 
-#include  "src/gcode/gcode.h"
+#include "Marlin/src/gcode/gcode.h"
 
 #if (MOTHERBOARD == BOARD_SNAPMAKER_2_0)
 

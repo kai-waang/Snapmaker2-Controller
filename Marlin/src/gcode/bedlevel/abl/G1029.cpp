@@ -20,14 +20,13 @@
  *
  */
 
-#include <src/gcode/gcode.h>
-#include <src/feature/bedlevel/abl/abl.h>
-#include <src/module/planner.h>
-#include <src/module/temperature.h>
-#include <src/feature/bedlevel/bedlevel.h>
-#include <src/module/endstops.h>
-#include <src/module/configuration_store.h>
-
+#include <Marlin/src/gcode/gcode.h>
+#include <Marlin/src/feature/bedlevel/abl/abl.h>
+#include <Marlin/src/module/planner.h>
+#include <Marlin/src/module/temperature.h>
+#include <Marlin/src/feature/bedlevel/bedlevel.h>
+#include <Marlin/src/module/endstops.h>
+#include <Marlin/src/module/configuration_store.h>
 #include "../../../../../snapmaker/src/snapmaker.h"
 
 /**

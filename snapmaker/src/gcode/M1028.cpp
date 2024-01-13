@@ -21,9 +21,9 @@
 #include "M1028.h"
 
 // marlin headers
-#include "Configuration.h"
-#include "src/gcode/gcode.h"
-#include "src/module/motion.h"
+#include "Marlin/Configuration.h"
+#include "Marlin/src/gcode/gcode.h"
+#include "Marlin/src/module/motion.h"
 
 #define MAX_CALI_SPEED_XY 100
 #define MAX_CALI_SPEED_Z  40

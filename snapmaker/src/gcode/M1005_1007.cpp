@@ -30,9 +30,9 @@
 #include "../module/toolhead_laser.h"
 
 // marlin headers
-#include "src/gcode/gcode.h"
-#include "src/module/motion.h"
-#include "src/libs/hex_print_routines.h"
+#include "Marlin/src/gcode/gcode.h"
+#include "Marlin/src/module/motion.h"
+#include "Marlin/src/libs/hex_print_routines.h"
 
 void GcodeSuite::M1005() {
   MAC_t       mac;

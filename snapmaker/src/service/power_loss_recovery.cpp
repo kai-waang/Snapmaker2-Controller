@@ -33,19 +33,19 @@
 #include "bed_level.h"
 #include "system.h"
 
-#include "src/Marlin.h"
-#include "src/gcode/gcode.h"
-#include "src/gcode/parser.h"
-#include "src/module/configuration_store.h"
-#include "src/module/printcounter.h"
-#include "src/module/stepper.h"
-#include "src/module/temperature.h"
-#include "src/module/planner.h"
-#include "src/module/motion.h"
-#include "src/feature/runout.h"
-#include "src/feature/bedlevel/bedlevel.h"
+#include "Marlin/src/Marlin.h"
+#include "Marlin/src/gcode/gcode.h"
+#include "Marlin/src/gcode/parser.h"
+#include "Marlin/src/module/configuration_store.h"
+#include "Marlin/src/module/printcounter.h"
+#include "Marlin/src/module/stepper.h"
+#include "Marlin/src/module/temperature.h"
+#include "Marlin/src/module/planner.h"
+#include "Marlin/src/module/motion.h"
+#include "Marlin/src/feature/runout.h"
+#include "Marlin/src/feature/bedlevel/bedlevel.h"
 
-#include HAL_PATH(src/HAL, HAL.h)
+#include HAL_PATH(Marlin/src/HAL, HAL.h)
 
 
 #define FLASH_PAGE_SIZE				2048

@@ -21,7 +21,7 @@
 
 #include "snapmaker.h"
 #include "service/system.h"
-#include "src/gcode/gcode.h"
+#include "Marlin/src/gcode/gcode.h"
 #include "../module/toolhead_3dp.h"
 #include "../../../Marlin/src/module/endstops.h"
 #include "../service/bed_level.h"

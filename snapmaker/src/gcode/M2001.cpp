@@ -21,7 +21,7 @@
 
 #include "snapmaker.h"
 #include "service/system.h"
-#include "src/gcode/gcode.h"
+#include "Marlin/src/gcode/gcode.h"
 
 /*
  * Power domain control:

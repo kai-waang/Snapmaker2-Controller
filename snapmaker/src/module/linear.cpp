@@ -25,8 +25,8 @@
 #include "../service/system.h"
 
 // marlin headers
-#include "src/inc/MarlinConfig.h"
-#include "src/module/endstops.h"
+#include "Marlin/src/inc/MarlinConfig.h"
+#include "Marlin/src/module/endstops.h"
 
 Linear linear(MODULE_DEVICE_ID_LINEAR);
 Linear linear_tmc(MODULE_DEVICE_ID_LINEAR_TMC);

@@ -22,7 +22,7 @@
 #define SNAPMAKER_EVENT_HANDLER_H_
 
 #include "../common/error.h"
-#include "src/Marlin.h"
+#include "Marlin/src/Marlin.h"
 #include "uart_host.h"
 
 // event IDs

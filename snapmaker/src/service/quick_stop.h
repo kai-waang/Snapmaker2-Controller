@@ -24,8 +24,8 @@
 #include "../common/error.h"
 #include "../common/config.h"
 
-#include "src/module/planner.h"
-#include "src/core/macros.h"
+#include "Marlin/src/module/planner.h"
+#include "Marlin/src/core/macros.h"
 
 
 enum QuickStopState : uint8_t {

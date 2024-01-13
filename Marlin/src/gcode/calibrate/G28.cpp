@@ -54,13 +54,13 @@
 
 #define DEBUG_OUT ENABLED(DEBUG_LEVELING_FEATURE)
 #include "../../core/debug_out.h"
-#include "../snapmaker/src/module/rotary_module.h"
+#include "snapmaker/src/module/rotary_module.h"
 
 #if (MOTHERBOARD == BOARD_SNAPMAKER_2_0)
-  #include "../snapmaker/src/module/toolhead_3dp.h"
-  #include "../snapmaker/src/service/bed_level.h"
-  #include "../snapmaker/src/module/linear.h"
-  #include "../snapmaker/src/module/toolhead_laser.h"
+  #include "snapmaker/src/module/toolhead_3dp.h"
+  #include "snapmaker/src/service/bed_level.h"
+  #include "snapmaker/src/module/linear.h"
+  #include "snapmaker/src/module/toolhead_laser.h"
 #endif
 
 #if ENABLED(QUICK_HOME)

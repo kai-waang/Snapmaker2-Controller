@@ -20,7 +20,7 @@
  *
  */
 
-#include <src/module/probe.h>
+#include <Marlin/src/module/probe.h>
 #include "../../../inc/MarlinConfig.h"
 
 #if ENABLED(AUTO_BED_LEVELING_BILINEAR)

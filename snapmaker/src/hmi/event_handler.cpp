@@ -36,15 +36,15 @@
 #include "../service/system.h"
 
 // marlin headers
-#include "src/Marlin.h"
-#include "src/module/motion.h"
-#include "src/module/stepper.h"
-#include "src/module/temperature.h"
-#include "src/module/planner.h"
-#include "src/libs/hex_print_routines.h"
-#include "src/gcode/gcode.h"
-#include "src/gcode/queue.h"
-#include "src/module/configuration_store.h"
+#include "Marlin/src/Marlin.h"
+#include "Marlin/src/module/motion.h"
+#include "Marlin/src/module/stepper.h"
+#include "Marlin/src/module/temperature.h"
+#include "Marlin/src/module/planner.h"
+#include "Marlin/src/libs/hex_print_routines.h"
+#include "Marlin/src/gcode/gcode.h"
+#include "Marlin/src/gcode/queue.h"
+#include "Marlin/src/module/configuration_store.h"
 
 
 #define EVENT_ATTR_HAVE_MOTION  0x1

@@ -25,10 +25,10 @@
 #include "../snapmaker.h"
 
 // marlin headers
-#include "src/Marlin.h"
-#include "src/gcode/gcode.h"
-#include "src/module/motion.h"
-#include "src/core/minmax.h"
+#include "Marlin/src/Marlin.h"
+#include "Marlin/src/gcode/gcode.h"
+#include "Marlin/src/module/motion.h"
+#include "Marlin/src/core/minmax.h"
 
 #if (SNAP_DEBUG == 1)
 

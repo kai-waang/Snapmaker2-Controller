@@ -27,14 +27,14 @@
 #include "../snapmaker.h"
 
 // marlin headers
-#include "src/core/macros.h"
-#include "src/core/boards.h"
-#include "Configuration.h"
-#include "src/pins/pins.h"
-#include "src/module/motion.h"
-#include "src/module/planner.h"
+#include "Marlin/src/core/macros.h"
+#include "Marlin/src/core/boards.h"
+#include "Marlin/Configuration.h"
+#include "Marlin/src/pins/pins.h"
+#include "Marlin/src/module/motion.h"
+#include "Marlin/src/module/planner.h"
 #include "rotary_module.h"
-#include "src/module/stepper.h"
+#include "Marlin/src/module/stepper.h"
 #include "../service/system.h"
 #include "toolhead_3dp.h"
 

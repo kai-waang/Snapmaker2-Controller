@@ -26,7 +26,7 @@
 #include "../common/debug.h"
 
 // marlin headers
-#include  "src/gcode/gcode.h"
+#include "Marlin/src/gcode/gcode.h"
 
 #if (MOTHERBOARD == BOARD_SNAPMAKER_2_0)
 

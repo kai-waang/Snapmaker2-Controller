@@ -1,5 +1,5 @@
 #include "rotary_module.h"
-#include "src/inc/MarlinConfig.h"
+#include "Marlin/src/inc/MarlinConfig.h"
 
 RotaryModule rotaryModule;
 

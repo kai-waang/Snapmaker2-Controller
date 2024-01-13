@@ -46,10 +46,10 @@ GcodeSuite gcode;
 #endif
 
 #if (MOTHERBOARD == BOARD_SNAPMAKER_2_0)
-  #include "../../../snapmaker/src/module/module_base.h"
-  #include "../snapmaker/src/module/toolhead_laser.h"
-  #include "../snapmaker/src/service/system.h"
-  #include "../../../snapmaker/src/common/debug.h"
+  #include "snapmaker/src/module/module_base.h"
+  #include "snapmaker/src/module/toolhead_laser.h"
+  #include "snapmaker/src/service/system.h"
+  #include "snapmaker/src/common/debug.h"
 #endif
 
 #include "../Marlin.h" // for idle() and suspend_auto_report

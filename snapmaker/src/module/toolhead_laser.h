@@ -26,7 +26,7 @@
 
 #include "../hmi/uart_host.h"
 
-#include "src/module/planner.h"
+#include "Marlin/src/module/planner.h"
 
 #define TOOLHEAD_LASER_POWER_SAFE_LIMIT             (0.5)
 #define TOOLHEAD_LASER_20W_40W_POWER_SAFE_LIMIT     (0.1)

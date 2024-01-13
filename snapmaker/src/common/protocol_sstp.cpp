@@ -25,8 +25,8 @@
 #include "MapleFreeRTOS1030.h"
 
 // marlin headers
-#include "src/core/serial.h"
-#include "src/libs/hex_print_routines.h"
+#include "Marlin/src/core/serial.h"
+#include "Marlin/src/libs/hex_print_routines.h"
 
 #define LOG_HEAD  "SSTP: "
 #define TIMEOUT_FOR_HEADER      (2)

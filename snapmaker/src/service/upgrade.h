@@ -23,7 +23,7 @@
 
 #include "../common/config.h"
 
-#include "src/core/macros.h"
+#include "Marlin/src/core/macros.h"
 
 #include "../hmi/event_handler.h"
 

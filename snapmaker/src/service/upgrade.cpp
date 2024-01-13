@@ -28,8 +28,8 @@
 #include "system.h"
 #include "flash_stm32.h"
 
-#include "src/Marlin.h"
-#include HAL_PATH(src/HAL, HAL_watchdog_STM32F1.h)
+#include "Marlin/src/Marlin.h"
+#include HAL_PATH(Marlin/src/HAL, HAL_watchdog_STM32F1.h)
 
 
 UpgradeService upgrade;

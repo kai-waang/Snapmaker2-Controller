@@ -24,9 +24,9 @@
 #include "../module/enclosure.h"
 
 // marlin headers
-#include "src/gcode/gcode.h"
-#include "src/gcode/queue.h"
-#include "src/core/macros.h"
+#include "Marlin/src/gcode/gcode.h"
+#include "Marlin/src/gcode/queue.h"
+#include "Marlin/src/core/macros.h"
 
 /*
 * Disable /Enable chamber door event

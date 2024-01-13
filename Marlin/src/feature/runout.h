@@ -32,8 +32,8 @@
 #include "../module/endstops.h"
 #include "../inc/MarlinConfig.h"
 
-#include "../snapmaker/src/module/toolhead_3dp.h"
-#include "../snapmaker/src/service/system.h"
+#include "snapmaker/src/module/toolhead_3dp.h"
+#include "snapmaker/src/service/system.h"
 
 #if ENABLED(EXTENSIBLE_UI)
   #include "../lcd/extensible_ui/ui_api.h"

@@ -20,9 +20,9 @@
  */
 #include "../common/config.h"
 #include "snapmaker.h"
-#include "src/inc/MarlinConfig.h"
-#include "src/gcode/gcode.h"
-#include HAL_PATH(src/HAL, HAL_watchdog_STM32F1.h)
+#include "Marlin/src/inc/MarlinConfig.h"
+#include "Marlin/src/gcode/gcode.h"
+#include HAL_PATH(Marlin/src/HAL, HAL_watchdog_STM32F1.h)
 
 
 void GcodeSuite::M1999() {

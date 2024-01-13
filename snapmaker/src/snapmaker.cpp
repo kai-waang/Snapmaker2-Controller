@@ -29,9 +29,9 @@
 #include "service/power_loss_recovery.h"
 
 // marlin headers
-#include "src/module/endstops.h"
-#include "src/feature/runout.h"
-#include "src/gcode/gcode.h"
+#include "Marlin/src/module/endstops.h"
+#include "Marlin/src/feature/runout.h"
+#include "Marlin/src/gcode/gcode.h"
 #include "flash_stm32.h"
 #include "hmi/gcode_result_handler.h"
 

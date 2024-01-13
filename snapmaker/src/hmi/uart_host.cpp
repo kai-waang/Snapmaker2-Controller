@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include <libmaple/usart.h>
-#include "src/core/serial.h"
+#include "Marlin/src/core/serial.h"
 
 #include "../common/debug.h"
 #include "uart_host.h"

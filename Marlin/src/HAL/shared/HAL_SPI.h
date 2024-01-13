@@ -28,7 +28,7 @@
 
 #include <stdint.h>
 
-#include "Configuration.h"
+#include "Marlin/Configuration.h"
 #if (MOTHERBOARD !=BOARD_SNAPMAKER_2_0)
 
 /**

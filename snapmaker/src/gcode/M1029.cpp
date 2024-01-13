@@ -22,9 +22,9 @@
 #include "../common/config.h"
 
 // marlin headers
-#include "src/gcode/gcode.h"
-#include "src/gcode/queue.h"
-#include "src/module/stepper.h"
+#include "Marlin/src/gcode/gcode.h"
+#include "Marlin/src/gcode/queue.h"
+#include "Marlin/src/module/stepper.h"
 /*
 * Remap the 8 pin port to any axis
 * 8 pin number: 1 - 6

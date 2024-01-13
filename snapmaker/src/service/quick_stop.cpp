@@ -28,12 +28,12 @@
 #include "../module/toolhead_laser.h"
 #include "../module/enclosure.h"
 
-#include "src/module/stepper.h"
-#include "src/module/temperature.h"
-#include "src/module/printcounter.h"
-#include "src/feature/bedlevel/bedlevel.h"
-#include <src/gcode/gcode.h>
-#include HAL_PATH(src/HAL, HAL_watchdog_STM32F1.h)
+#include "Marlin/src/module/stepper.h"
+#include "Marlin/src/module/temperature.h"
+#include "Marlin/src/module/printcounter.h"
+#include "Marlin/src/feature/bedlevel/bedlevel.h"
+#include "Marlin/src/gcode/gcode.h"
+#include HAL_PATH(Marlin/src/HAL, HAL_watchdog_STM32F1.h)
 
 #define CNC_SAFE_HIGH_DIFF 30  // Bed to CNC head height. mm
 

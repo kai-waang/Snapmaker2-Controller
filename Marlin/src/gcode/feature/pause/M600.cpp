@@ -158,7 +158,7 @@ void GcodeSuite::M600() {
 }
 #else
 #include "../../../gcode/gcode.h"
-#include "../snapmaker/src/module/toolhead_3dp.h"
+#include "snapmaker/src/module/toolhead_3dp.h"
 void GcodeSuite::M600() {
   printer1->ResetFilamentState(0, 0);
 }

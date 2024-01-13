@@ -21,7 +21,7 @@
 #ifndef HEARTBEAT_WATCH_H_
 #define HEARTBEAT_WATCH_H_
 
-#include "src/Marlin.h"
+#include "Marlin/src/Marlin.h"
 
 /* Common implement to check heartbeat
  *  refer to heater watch in thermalmanager

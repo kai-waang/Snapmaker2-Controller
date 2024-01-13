@@ -23,7 +23,7 @@
 #include "../common/debug.h"
 #include "../snapmaker.h"
 
-#include "src/Marlin.h"
+#include "Marlin/src/Marlin.h"
 
 #define CAN_CHANNEL_MASK      (0x3)
 #define CAN_CHANNEL_SHIFT     (10)

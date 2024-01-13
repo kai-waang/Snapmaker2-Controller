@@ -25,9 +25,9 @@
 #include "../service/system.h"
 #include "../service/bed_level.h"
 
-#include "src/gcode/gcode.h"
-#include "src/gcode/queue.h"
-#include "src/core/macros.h"
+#include "Marlin/src/gcode/gcode.h"
+#include "Marlin/src/gcode/queue.h"
+#include "Marlin/src/core/macros.h"
 
 #include "../module/linear.h"
 #include "../module/toolhead_laser.h"

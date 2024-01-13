@@ -23,8 +23,8 @@
 
 #include "../common/config.h"
 
-#include "src/Marlin.h"
-#include "src/core/macros.h"
+#include "Marlin/src/Marlin.h"
+#include "Marlin/src/core/macros.h"
 
 extern float sm_homing_feedrate[XN];
 extern uint8_t sm_homing_bump_divisor[XN];

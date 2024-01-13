@@ -24,12 +24,12 @@
 #include "common/debug.h"
 
 // marlin headers
-#include "src/core/macros.h"
-#include "src/core/boards.h"
-#include "Configuration.h"
-#include "src/pins/pins.h"
-#include "src/inc/MarlinConfig.h"
-#include HAL_PATH(src/HAL, HAL.h)
+#include "Marlin/src/core/macros.h"
+#include "Marlin/src/core/boards.h"
+#include "Marlin/Configuration.h"
+#include "Marlin/src/pins/pins.h"
+#include "Marlin/src/inc/MarlinConfig.h"
+#include HAL_PATH(Marlin/src/HAL, HAL.h)
 #include "../../../Marlin/src/module/temperature.h"
 #include "../../../Marlin/src/feature/bedlevel/bedlevel.h"
 #include "../../../Marlin/src/module/tool_change.h"

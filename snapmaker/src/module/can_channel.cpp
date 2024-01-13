@@ -22,8 +22,8 @@
 #include "../common/config.h"
 #include "../common/debug.h"
 
-#include "src/inc/MarlinConfig.h"
-#include HAL_PATH(src/HAL, HAL_can_STM32F1.h)
+#include "Marlin/src/inc/MarlinConfig.h"
+#include HAL_PATH(Marlin/src/HAL, HAL_can_STM32F1.h)
 
 CanChannel can;
 

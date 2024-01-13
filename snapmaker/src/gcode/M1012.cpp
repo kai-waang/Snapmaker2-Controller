@@ -19,10 +19,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "../module/emergency_stop.h"
+#include "snapmaker/src/module/emergency_stop.h"
 
 // marlin headers
-#include "src/gcode/gcode.h"
+#include "Marlin/src/gcode/gcode.h"
 
 /*
 * Query the emergency stop status

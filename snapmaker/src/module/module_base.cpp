@@ -38,11 +38,11 @@
 #include "toolhead_triple.h" // additional toolhead
 
 // marlin headers
-#include "src/Marlin.h"
-#include "src/inc/MarlinConfig.h"
-#include "src/feature/bedlevel/abl/abl.h"
-#include "src/module/configuration_store.h"
-#include HAL_PATH(src/HAL, HAL.h)
+#include "Marlin/src/Marlin.h"
+#include "Marlin/src/inc/MarlinConfig.h"
+#include "Marlin/src/feature/bedlevel/abl/abl.h"
+#include "Marlin/src/module/configuration_store.h"
+#include HAL_PATH(Marlin/src/HAL, HAL.h)
 
 ModuleBase *static_modules[] = {
   &linear,

@@ -28,7 +28,7 @@
 #include "../../module/motion.h"
 #include "../../libs/buzzer.h"
 
-#include "../snapmaker/src/module/linear.h"
+#include "snapmaker/src/module/linear.h"
 
 /**
  * M206: Set Additional Homing Offset (X Y Z). SCARA aliases T=X, P=Y

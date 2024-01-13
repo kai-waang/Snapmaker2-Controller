@@ -29,10 +29,10 @@
 
 #include "../Marlin.h"
 #include "temperature.h"
-#include "src/libs/hex_print_routines.h"
+#include "Marlin/src/libs/hex_print_routines.h"
 
-#include "../snapmaker/src/module/toolhead_dualextruder.h"
-#include "../snapmaker/src/module/linear.h"
+#include "snapmaker/src/module/toolhead_dualextruder.h"
+#include "snapmaker/src/module/linear.h"
 
 #if ENABLED(ENDSTOP_INTERRUPTS_FEATURE)
   #include HAL_PATH(../HAL, endstop_interrupts.h)

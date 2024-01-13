@@ -24,7 +24,7 @@
 #include <stdio.h>
 #include "config.h"
 
-#include "src/core/macros.h"
+#include "Marlin/src/core/macros.h"
 
 #include "error.h"
 #include "../hmi/event_handler.h"

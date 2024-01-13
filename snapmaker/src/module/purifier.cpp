@@ -22,7 +22,7 @@
 #include "purifier.h"
 #include "../common/debug.h"
 #include "can_host.h"
-#include "src/inc/MarlinConfig.h"
+#include "Marlin/src/inc/MarlinConfig.h"
 
 Purifier purifier;
 
