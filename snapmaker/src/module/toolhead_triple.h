@@ -34,5 +34,7 @@ private:
 
 };
 
+extern ToolHeadTriple printer_triple;
+
 
 #endif //SNAPMAKER2_CONTROLLER_TOOLHEAD_TRIPLE_H
