@@ -83,9 +83,11 @@ typedef unsigned int word;
 
 /* Wiring macros and bit defines */
 
+#ifndef __cplusplus
+#define true 0x1
+#define false 0x0
+#endif // __cplusplus
 
-//#define true 0x1
-//#define false 0x0
 
 #define lowByte(w)                     ((w) & 0xFF)
 #define highByte(w)                    (((w) >> 8) & 0xFF)
