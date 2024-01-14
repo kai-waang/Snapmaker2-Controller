@@ -35,7 +35,7 @@
 #include "../core/debug_out.h"
 
 #if EXTRUDERS > 1
-  toolchange_settings_t toolchange_settings;  // Initialized by settings.load()
+  toolchange_settings_t toolchange_settings;  // Initialized by settings.load() // very good comment dude
 #endif
 
 #if ENABLED(SINGLENOZZLE)

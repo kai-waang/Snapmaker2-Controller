@@ -97,8 +97,8 @@ class CanHost {
     void SendHeartbeat();
     void SendEmergencyStop();
 
-    void ReceiveHandler(void *parameter);
-    void EventHandler(void *parameter);
+    [[noreturn]] void ReceiveHandler(void *parameter);
+    [[noreturn]] void EventHandler(void *parameter);
 
     ErrCode UpgradeModules(uint32_t fw_addr, uint32_t length);
 
@@ -107,7 +107,7 @@ class CanHost {
     bool IrqCallback(CanStdDataFrame_t &frame);
 
     ErrCode BindMessageID(CanExtCmd_t &cmd, message_id_t *msg_buffer);
-    void ShowModuleVersion(MAC_t mac);
+    static void ShowModuleVersion(MAC_t mac);
     void SetReceiverSpeed(RECEIVER_SPEED_E speed);
     uint32_t mac(uint8_t index) {
       if (index < total_mac_)

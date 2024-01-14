@@ -68,7 +68,7 @@ class ToolHeadDualExtruder: public ToolHead3DP {
 
     //
     ErrCode Init(MAC_t &mac, uint8_t mac_index);
-    ErrCode ToolChange(uint8_t new_extruder, bool use_compensation = true);
+    ErrCode ToolChange(uint8_t new_extruder, bool use_compensation/* = true*/);
     bool probe_state();
     bool probe_state(probe_sensor_t sensor);
     bool filament_state();
@@ -90,7 +90,7 @@ class ToolHeadDualExtruder: public ToolHead3DP {
 
     // module report callback
     void ReportProbeState(uint8_t state[]);
-    void ReportTemperature(uint8_t *data);
+    void ReportTemperature(const uint8_t *data);
     void ReportPID(uint8_t *data);
     void ReportFilamentState(uint8_t state[]);
     void ReportHotendType(uint8_t *data);

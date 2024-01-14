@@ -197,7 +197,7 @@ typedef struct {
 typedef struct {
   uint32_t max_acceleration_mm_per_s2[X_TO_EN],  // (mm/s^2) M201 XYZE
            min_segment_time_us;                 // (µs) M205 B
-  float e_axis_steps_per_mm_backup[2],          // e steps per millimeters for single extruder and dual extruder
+  float e_axis_steps_per_mm_backup[4],          // e steps per millimeters for single extruder and dual extruder
         axis_steps_per_mm[X_TO_EN],             // (steps) M92 XYZE - Steps per millimeter
         max_feedrate_mm_s[X_TO_EN],             // (mm/s) M203 XYZE - Max speeds
         acceleration,                           // (mm/s^2) M204 S - Normal acceleration. DEFAULT ACCELERATION for all printing moves.

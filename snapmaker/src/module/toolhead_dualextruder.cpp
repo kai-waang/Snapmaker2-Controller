@@ -39,7 +39,7 @@
 #define CAN_FRAME_SIZE                         8
 #define DEFAULT_hotend_offsetX                 26
 #define DEFAULT_hotend_offsetY                 0
-#define DEFAULT_hotend_offsetZ                 -1.5
+#define DEFAULT_hotend_offsetZ                 (-1.5)
 #define BIAS_hotend_offsetX                    1.2
 #define BIAS_hotend_offsetY                    1.2
 #define BIAS_hotend_offsetZ                    1.2
@@ -168,7 +168,7 @@ ErrCode ToolHeadDualExtruder::Init(MAC_t &mac, uint8_t mac_index) {
       break;
 
     default:
-      cb = NULL;
+      cb = nullptr;
       break;
     }
 
@@ -263,7 +263,7 @@ void ToolHeadDualExtruder::ReportProbeState(uint8_t state[]) {
 
 #define ERR_OVERTEMP_BIT_MASK         (0)
 #define ERR_INVALID_NOZZLE_BIT_MASK   (1)
-void ToolHeadDualExtruder::ReportTemperature(uint8_t *data) {
+void ToolHeadDualExtruder::ReportTemperature(const uint8_t *data) {
   cur_temp_[0] = data[0] << 8 | data[1];
   if (data[2] & (1<<ERR_OVERTEMP_BIT_MASK)) {
     systemservice.ThrowException(EHOST_HOTEND0, ETYPE_OVERRUN_MAXTEMP);
@@ -803,18 +803,18 @@ void ToolHeadDualExtruder::GetZCompensation(float &left_z_compensation, float &r
 }
 
 ErrCode ToolHeadDualExtruder::ToolChange(uint8_t new_extruder, bool use_compensation/* = true */) {
-  volatile int32_t xdiff_scaled, ydiff_scaled, zdiff_scaled;
-  volatile float xdiff, ydiff, zdiff;
-  volatile float hotend_offset_tmp[XYZ][HOTENDS] {0};
+  volatile int32_t x_diff_scaled, y_diff_scaled, z_diff_scaled;
+  volatile float   x_diff, y_diff, z_diff;
+  volatile float hotend_offset_tmp[XYZ][HOTENDS] {{0}};
   volatile float z_raise = 0;
 
   float pre_position[X_TO_E];
 
   volatile uint32_t old_extruder;
 
-  planner.synchronize();
+  Planner::synchronize();
 
-  const bool leveling_was_active = planner.leveling_active;
+  const bool leveling_was_active = Planner::leveling_active;
 
   if (new_extruder >= EXTRUDERS) {
     return E_PARAM;
@@ -836,7 +836,7 @@ ErrCode ToolHeadDualExtruder::ToolChange(uint8_t new_extruder, bool use_compensa
       hotend_offset_tmp[Z_AXIS][1] = 0;
     }
 
-    planner.synchronize();
+    Planner::synchronize();
     taskENTER_CRITICAL();
     LOOP_X_TO_EN(i) backup_current_position[i] = current_position[i];
     backup_position_valid = true;
@@ -860,7 +860,7 @@ ErrCode ToolHeadDualExtruder::ToolChange(uint8_t new_extruder, bool use_compensa
 
     // remove live z offset of old extruder after raise Z, cause Z will fall in unapplying live offset
     levelservice.UnapplyLiveZOffset(active_extruder);
-    // to avoid power-loss, we record the new extruder  after unapply z offset!
+    // to avoid power-loss, we record the new extruder after unapply z offset!
     old_extruder = active_extruder;
     active_extruder = new_extruder;
     actual_extruder = new_extruder;
@@ -889,20 +889,20 @@ ErrCode ToolHeadDualExtruder::ToolChange(uint8_t new_extruder, bool use_compensa
       ModuleCtrlToolChange(new_extruder);
     }
 
-    xdiff = hotend_offset_tmp[X_AXIS][new_extruder] - hotend_offset_tmp[X_AXIS][old_extruder];
-    ydiff = hotend_offset_tmp[Y_AXIS][new_extruder] - hotend_offset_tmp[Y_AXIS][old_extruder];
-    zdiff = hotend_offset_tmp[Z_AXIS][new_extruder] - hotend_offset_tmp[Z_AXIS][old_extruder];
-    xdiff_scaled = xdiff * planner.settings.axis_steps_per_mm[X_AXIS];
-    ydiff_scaled = ydiff * planner.settings.axis_steps_per_mm[Y_AXIS];
-    zdiff_scaled = zdiff * planner.settings.axis_steps_per_mm[Z_AXIS];
+    x_diff        = hotend_offset_tmp[X_AXIS][new_extruder] - hotend_offset_tmp[X_AXIS][old_extruder];
+    y_diff        = hotend_offset_tmp[Y_AXIS][new_extruder] - hotend_offset_tmp[Y_AXIS][old_extruder];
+    z_diff        = hotend_offset_tmp[Z_AXIS][new_extruder] - hotend_offset_tmp[Z_AXIS][old_extruder];
+    x_diff_scaled = x_diff * planner.settings.axis_steps_per_mm[X_AXIS];
+    y_diff_scaled = y_diff * planner.settings.axis_steps_per_mm[Y_AXIS];
+    z_diff_scaled = z_diff * planner.settings.axis_steps_per_mm[Z_AXIS];
     // Ensure that the divisor is not zero
     // todo
-    xdiff = (float)xdiff_scaled / planner.settings.axis_steps_per_mm[X_AXIS];
-    ydiff = (float)ydiff_scaled / planner.settings.axis_steps_per_mm[Y_AXIS];
-    zdiff = (float)zdiff_scaled / planner.settings.axis_steps_per_mm[Z_AXIS];
-    current_position[X_AXIS] += xdiff;
-    current_position[Y_AXIS] += ydiff;
-    current_position[Z_AXIS] += zdiff;
+    x_diff = (float)x_diff_scaled / planner.settings.axis_steps_per_mm[X_AXIS];
+    y_diff = (float)y_diff_scaled / planner.settings.axis_steps_per_mm[Y_AXIS];
+    z_diff = (float)z_diff_scaled / planner.settings.axis_steps_per_mm[Z_AXIS];
+    current_position[X_AXIS] += x_diff;
+    current_position[Y_AXIS] += y_diff;
+    current_position[Z_AXIS] += z_diff;
     LOG_I("offset pos: %.3f, %.3f, %.3f\n", current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS]);
     sync_plan_position();
 
@@ -920,7 +920,7 @@ ErrCode ToolHeadDualExtruder::ToolChange(uint8_t new_extruder, bool use_compensa
 
     LOG_I("descent pos: %.3f, %.3f, %.3f\n\n", current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS]);
 
-    // after swtich extruder, just select relative OPTOCOUPLER
+    // after switch extruder, select relative OPTOCOUPLER
     SelectProbeSensor((probe_sensor_t)(PROBE_SENSOR_LEFT_OPTOCOUPLER + new_extruder));
   }
 
@@ -991,10 +991,10 @@ ErrCode ToolHeadDualExtruder::HmiRequestToolChange(SSTP_Event_t &event) {
 
   switch (event.data[0]) {
     case 0:
-      err = ToolChange(0);
+      err = ToolChange(0, true);
       break;
     case 1:
-      err = ToolChange(1);
+      err = ToolChange(1, true);
       break;
     default:
       err = E_PARAM;

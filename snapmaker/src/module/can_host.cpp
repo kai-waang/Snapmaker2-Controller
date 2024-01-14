@@ -477,7 +477,7 @@ void CanHost::EventHandler(void *parameter) {
     if (static_modules[i]->PostInit() != E_SUCCESS)
       LOG_E("PostInit failed: 0x%08x\n", static_modules[i]->mac());
   }
-  // broadcase modules have been initialized
+  // broadcast modules have been initialized
   xEventGroupSetBits(event_group, EVENT_GROUP_MODULE_READY);
 
   for (;;) {
@@ -519,15 +519,15 @@ ErrCode CanHost::AssignMessageRegion() {
 
   uint16_t total_message = 0;
 
-  for (int i = 0; i < MODULE_FUNC_MAX; i++) {
-    prio_of_function       = module_prio_table[i][0];
-    total_of_same_function = module_prio_table[i][1];
+  for (auto module_prio : module_prio_table) {
+    prio_of_function       = module_prio[0];
+    total_of_same_function = module_prio[1];
 
     message_region_[prio_of_function][0] += total_of_same_function;
   }
 
-  for (int i = 0; i < MODULE_FUNC_PRIORITY_MAX; i++) {
-    total_message += message_region_[i][0];
+  for (auto & i : message_region_) {
+    total_message += i[0];
   }
 
   if (total_message >= MODULE_SUPPORT_MESSAGE_ID_MAX) {

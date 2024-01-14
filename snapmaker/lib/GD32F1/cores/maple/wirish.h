@@ -73,7 +73,7 @@
 
 #include <libmaple/libmaple.h>
 
-#include <stdint.h>
+#include <cstdint>
 
 #include <WCharacter.h>
 #include <tone.h>
@@ -83,8 +83,9 @@ typedef unsigned int word;
 
 /* Wiring macros and bit defines */
 
-#define true 0x1
-#define false 0x0
+
+//#define true 0x1
+//#define false 0x0
 
 #define lowByte(w)                     ((w) & 0xFF)
 #define highByte(w)                    (((w) >> 8) & 0xFF)

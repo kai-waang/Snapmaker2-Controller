@@ -20,20 +20,20 @@
  *
  */
 
-#include "../gcode.h"
-#include "../../module/tool_change.h"
-#include "../../../../snapmaker/src/module/toolhead_3dp.h"
+#include "Marlin/src/gcode/gcode.h"
+#include "Marlin/src/module/tool_change.h"
+#include "snapmaker/src/module/toolhead_3dp.h"
 
 #if ENABLED(DEBUG_LEVELING_FEATURE) || EXTRUDERS > 1
-  #include "../../module/motion.h"
+  #include "Marlin/src/module/motion.h"
 #endif
 
 #if ENABLED(PRUSA_MMU2)
-  #include "../../feature/prusa_MMU2/mmu2.h"
+  #include "Marlin/src/feature/prusa_MMU2/mmu2.h"
 #endif
 
 #define DEBUG_OUT ENABLED(DEBUG_LEVELING_FEATURE)
-#include "../../core/debug_out.h"
+#include "Marlin/src/core/debug_out.h"
 
 /**
  * T0-T<n>: Switch tool, usually switching extruders
@@ -67,7 +67,7 @@ void GcodeSuite::T(const uint8_t tool_index) {
 
   #else
 
-    printer1->ToolChange(tool_index);
+    printer1->ToolChange(tool_index, true);
     // tool_change(
     //   tool_index,
     //   MMM_TO_MMS(parser.linearval('F')),

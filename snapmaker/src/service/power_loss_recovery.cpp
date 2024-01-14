@@ -503,7 +503,7 @@ void PowerLossRecovery::Resume3DP() {
 	}
 
 	if (pre_data_.toolhead == MODULE_TOOLHEAD_DUALEXTRUDER)
-    printer1->ToolChange(pre_data_.active_extruder);
+    printer1->ToolChange(pre_data_.active_extruder, true);
 
 	if (!pre_data_.too_changing) {
 		current_position[E_AXIS] += 20;

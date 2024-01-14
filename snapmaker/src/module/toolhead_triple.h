@@ -9,7 +9,7 @@
 
 class ToolHeadTriple: public ToolHeadDualExtruder {
 public:
-    ToolHeadTriple(ModuleDeviceID id);
+    explicit ToolHeadTriple(ModuleDeviceID id);
 
     /**
      * @brief Init module toolhead with triple extruders
@@ -17,7 +17,7 @@ public:
      * @param mac_index
      * @return ErrCode
      */
-    ErrCode Init(MAC_t &mac, uint8_t mac_index);
+    ErrCode Init(MAC_t &mac, uint8_t mac_index) override;
 
     /**
      *
@@ -25,12 +25,13 @@ public:
      * @param use_compensation
      * @return
      */
-    ErrCode ToolChange(uint8_t new_extruder, bool use_compensation = true);
+    ErrCode ToolChange(uint8_t new_extruder, bool use_compensation);
 
 private:
-//    probe_sensor_t active_probe_sensor[EXTRUDERS];
-//    uint8_t hotend_type_[EXTRUDERS];
-//    uint16_t target_temp_[EXTRUDERS];
+    // some private variables are inherited from ToolHeadDualExtruder
+    static constexpr uint8_t EXTRUDER_LEFT = 0;
+    static constexpr uint8_t EXTRUDER_RIGHT = 1;
+    static constexpr uint8_t EXTRUDER_EXTRA = 2;
 
 };
 

@@ -496,7 +496,7 @@ void GcodeSuite::G28(const bool always_home_all) {
 
       if (!parser.boolval('N')) {
         if (actual_extruder != active_extruder) {
-          printer1->ToolChange(actual_extruder);
+          printer1->ToolChange(actual_extruder, true);
         }
       }
     }

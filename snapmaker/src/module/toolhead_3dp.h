@@ -84,7 +84,7 @@ class ToolHead3DP: public ModuleBase {
     float * GetPID(uint8_t extrude_index=0);
     void UpdatePID(uint8_t index, float val) {if (index < 3) pid_[index]=val;};
     virtual ErrCode SetHeater(int16_t target_temp, uint8_t extrude_index=0);
-    void GetFilamentState();
+    static void GetFilamentState();
     virtual void Process();
     void NozzleFanCtrlCheck(void);
 
@@ -153,12 +153,12 @@ class ToolHead3DP: public ModuleBase {
 
     void UpdateEAxisStepsPerUnit(ModuleToolHeadType type);
 
-    virtual void UpdateHotendMaxTemp(int16_t temp, uint8_t e = 0);
+    virtual void UpdateHotendMaxTemp(int16_t temp, uint8_t/* e = 0*/);
 
     // for dualextruder
-    virtual ErrCode ToolChange(uint8_t new_extruder, bool use_compensation = true) { return E_SUCCESS; }
+    virtual ErrCode ToolChange(uint8_t new_extruder, bool use_compensation/* = true*/) { return E_SUCCESS; }
     virtual void SelectProbeSensor(probe_sensor_t sensor) { return; }
-    virtual void SetZCompensation(float comp, uint32_t e = 0) { return; }
+    virtual void SetZCompensation(float comp, uint32_t e = 0) { }
     void GetZCompensation(float &left_z_compensation, float &right_z_compensation) { return; }
     virtual ErrCode ModuleCtrlProximitySwitchPower(uint8_t state) { return E_SUCCESS; }
     virtual ErrCode ModuleCtrlProbeStateSync() { return E_SUCCESS; }
@@ -180,7 +180,7 @@ class ToolHead3DP: public ModuleBase {
     virtual void ShowInfo() {}
 
   protected:
-    void IOInit(void);
+    static void IOInit(void);
 
   protected:
     int16_t cur_temp_[EXTRUDERS];
