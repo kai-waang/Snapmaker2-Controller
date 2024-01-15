@@ -169,7 +169,7 @@ void GcodeSuite::get_destination_from_command() {
     }
   }
   else {
-    // disable inline power by default if plugged other toolhead
+    // disable inline power by default if plugged another toolhead
     planner.laser_inline.status.isEnabled = false;
   }
 }

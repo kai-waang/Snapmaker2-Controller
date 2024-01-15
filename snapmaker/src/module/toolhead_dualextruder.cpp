@@ -240,7 +240,7 @@ void ToolHeadDualExtruder::GetHWVersion() {
   }
 }
 
-void ToolHeadDualExtruder::ReportProbeState(uint8_t state[]) {
+void ToolHeadDualExtruder::ReportProbeState(const uint8_t state[]) {
   if (state[0]) {
     probe_state_ |= 0x01;
   } else {

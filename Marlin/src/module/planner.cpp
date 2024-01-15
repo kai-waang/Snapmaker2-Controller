@@ -1687,7 +1687,7 @@ bool Planner::_buffer_steps(const int32_t (&target)[X_TO_E]
   // Wait for the next available block
   uint8_t next_buffer_head;
   block_t * const block = get_next_free_block(next_buffer_head);
-  if(block == NULL)
+  if(block == nullptr)
     return false;
 
   // Fill the block with the specified movement
@@ -1705,7 +1705,7 @@ bool Planner::_buffer_steps(const int32_t (&target)[X_TO_E]
     return true;
   }
 
-  // record the gcode line number in its block, then we can use in power-loss data recording
+  // record the g-code line number in its block, then we can use in power-loss data recording
   if (commands_in_queue)
     block->filePos = CommandLine[cmd_queue_index_r];
   else

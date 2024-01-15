@@ -382,20 +382,26 @@ ErrCode ToolHeadTriple::ToolChange(uint8_t new_extruder, bool use_compensation)
         do_blocking_move_to(pre_position);
 
         // 1
-        if (new_extruder == EXTRUDER_RIGHT) {
+        if(new_extruder == EXTRUDER_RIGHT)
+        {
             ModuleCtrlToolChange(new_extruder);
         }
 
-        if (new_extruder == EXTRUDER_EXTRA) {
+        if(new_extruder == EXTRUDER_EXTRA)
+        {
             ModuleCtrlToolChange(new_extruder);
         }
-
 
         // here we should apply live z offset of new extruder!
         levelservice.ApplyLiveZOffset(active_extruder);
         do_blocking_move_to_z(current_position[Z_AXIS] - z_raise, 30);
         LOG_I("changing finished, going back\n");
-        LOG_I("descent pos: %.3f, %.3f, %.3f\n\n", current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS]);
+        LOG_I(
+            "descent pos: %.3f, %.3f, %.3f\n\n",
+            current_position[X_AXIS],
+            current_position[Y_AXIS],
+            current_position[Z_AXIS]
+        );
 
         // after switch extruder, select relative OPTOCOUPLER
         SelectProbeSensor((probe_sensor_t)(PROBE_SENSOR_LEFT_OPTOCOUPLER + new_extruder));
@@ -408,4 +414,36 @@ ErrCode ToolHeadTriple::ToolChange(uint8_t new_extruder, bool use_compensation)
     taskEXIT_CRITICAL();
 
     return E_SUCCESS;
+}
+
+void ToolHeadTriple::ReportProbeState(const uint8_t *state)
+{
+    // 1 bit indicates one sensor
+    // todo: but extra extruder doesn't have a probe sensor
+    for(auto i = 0; i < EXTRUDERS; i++)
+    {
+        if(state[i])
+            probe_state_ |= (1 << i);
+        else
+            probe_state_ &= ~(1 << i);
+    }
+}
+
+void ToolHeadTriple::ReportFilamentState(uint8_t *state)
+{
+    if (!state[0])
+        filament_state_ |= 0x01;
+    else
+        filament_state_ &= ~0x01;
+
+    if (!state[1])
+        filament_state_ |= 0x02;
+    else
+        filament_state_ &= ~0x02;
+
+    // extra extruder
+    if (!state[2])
+        filament_state_ |= 0x04;
+    else
+        filament_state_ &= ~0x04;
 }

@@ -125,7 +125,7 @@ ErrCode ToolHead3DP::Init(MAC_t &mac, uint8_t mac_index)
     function.sub_index = 0;
     function.priority  = MODULE_FUNC_PRIORITY_DEFAULT;
 
-    // register function ids to can host, it will assign message id
+    // register function ids to can host; it will assign message id
     for(int i = 0; i < cmd.data[MODULE_EXT_CMD_INDEX_DATA]; i++)
     {
         function.id = (cmd.data[i * 2 + 2] << 8 | cmd.data[i * 2 + 3]);
@@ -149,7 +149,7 @@ ErrCode ToolHead3DP::Init(MAC_t &mac, uint8_t mac_index)
             cb = CallbackAckReportPidTemp;
             break;
         default:
-            cb = NULL;
+            cb = nullptr;
             break;
         }
 

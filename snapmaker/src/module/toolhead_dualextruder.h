@@ -89,16 +89,16 @@ class ToolHeadDualExtruder: public ToolHead3DP {
     ErrCode HmiRequestGetActiveExtruder(SSTP_Event_t &event);
 
     // module report callback
-    void ReportProbeState(uint8_t state[]);
-    void ReportTemperature(const uint8_t *data);
-    void ReportPID(uint8_t *data);
-    void ReportFilamentState(uint8_t state[]);
-    void ReportHotendType(uint8_t *data);
-    void ReportExtruderInfo(uint8_t *data);
-    void ReportHotendOffset(uint8_t *data);
-    void ReportProbeSensorCompensation(uint8_t *data);
-    void ReportRightExtruderPos(uint8_t *data);
-    void ReportHWVersion(uint8_t *data);
+    virtual void ReportProbeState(const uint8_t state[]);
+    virtual void ReportTemperature(const uint8_t *data);
+    virtual void ReportPID(uint8_t *data);
+    virtual void ReportFilamentState(uint8_t state[]);
+    virtual void ReportHotendType(uint8_t *data);
+    virtual void ReportExtruderInfo(uint8_t *data);
+    virtual void ReportHotendOffset(uint8_t *data);
+    virtual void ReportProbeSensorCompensation(uint8_t *data);
+    virtual void ReportRightExtruderPos(uint8_t *data);
+    virtual void ReportHWVersion(uint8_t *data);
 
     // set module
     ErrCode ModuleCtrlProximitySwitchPower(uint8_t state);
@@ -118,13 +118,13 @@ class ToolHeadDualExtruder: public ToolHead3DP {
     ErrCode ModuleCtrlRightExtruderMove(move_type_e type, float destination = 0);
     ErrCode ModuleCtrlSetRightExtruderPosition(float raise_for_home_pos, float z_max_pos);
 
-    void GetHWVersion();
+    static void GetHWVersion();
     void ShowInfo();
 
     void Process();
 
   protected:
-    void CheckLevelingData();
+    static void CheckLevelingData();
     ErrCode ModuleCtrlSaveZCompensation(float comp, uint32_t e = 0);
 
   protected:

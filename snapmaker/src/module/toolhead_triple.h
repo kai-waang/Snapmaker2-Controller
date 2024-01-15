@@ -25,7 +25,10 @@ public:
      * @param use_compensation
      * @return
      */
-    ErrCode ToolChange(uint8_t new_extruder, bool use_compensation);
+    ErrCode ToolChange(uint8_t new_extruder, bool use_compensation) override;
+
+    void ReportProbeState(const uint8_t state[]) override;
+    void ReportFilamentState(uint8_t state[]) override;
 
 private:
     // some private variables are inherited from ToolHeadDualExtruder
